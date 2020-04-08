@@ -14,7 +14,7 @@ jobs:
 #       uses: ValeriuCoban/github-tag-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        MAX_INSTANCES: $(${{ github.event.client_payload.test_filters }} || 8)
+        MAX_INSTANCES: ${{${{ github.event.client_payload.test_filters }} || 8}}
         APP_ROOT_URL: https://latest.axilium.technosoft.nl
         FILTER_TAGS: '@TestType-e2e'
         WITH_V: true
