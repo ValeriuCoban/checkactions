@@ -7,18 +7,17 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2      
-      with:
-        fetch-depth: '0'
+#     - uses: actions/checkout@v2      
+#       with:
+#         fetch-depth: '0'
     - name: Bump version and push tag
-      uses: ValeriuCoban/github-tag-action@master
+#       uses: ValeriuCoban/github-tag-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        MAX_INSTANCES: 8
+        MAX_INSTANCES: ${{ secrets.GITHUB_TOKEN }} || 8
         APP_ROOT_URL: https://latest.axilium.technosoft.nl
         FILTER_TAGS: '@TestType-e2e'
         WITH_V: true
-    - name: npm install, build, and test
       run: |
         echo GITHUB_WORKSPACE: $GITHUB_WORKSPACE
         echo GITHUB_TOKEN: $GITHUB_TOKEN
@@ -27,5 +26,3 @@ jobs:
         echo FILTER_TAGS: $FILTER_TAGS
         pwd 
         ls -l
-      env:
-        CI: true
