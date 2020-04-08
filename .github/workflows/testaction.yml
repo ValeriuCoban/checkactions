@@ -15,7 +15,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MAX_INSTANCES: ${{ github.event.client_payload.max_instances || 8 }}
-        APP_ROOT_URL: ${{ github.event.client_payload.app_url || https://latest.axilium.technosoft.nl }}
+        APP_ROOT_URL: ${{ github.event.client_payload.app_url || "https://latest.axilium.technosoft.nl" }}
         FILTER_TAGS: '${{ github.event.client_payload.test_filters }} || @TestType-e2e'
         WITH_V: true
     - name: npm install, build, and test
