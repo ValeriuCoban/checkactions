@@ -14,10 +14,17 @@ jobs:
       uses: ValeriuCoban/github-tag-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MAX_INSTANCES: ${{ github.event.client_payload.max_instances }} || 8
+        APP_ROOT_URL: ${{ github.event.client_payload.app_url }} || https://latest.axilium.technosoft.nl
+        FILTER_TAGS: '${{ github.event.client_payload.test_filters }} || @TestType-e2e'
         WITH_V: true
     - name: npm install, build, and test
       run: |
-        echo $GITHUB_WORKSPACE
+        echo GITHUB_WORKSPACE: $GITHUB_WORKSPACE
+        echo GITHUB_TOKEN: $GITHUB_TOKEN
+        echo MAX_INSTANCES: $MAX_INSTANCES
+        echo APP_ROOT_URL: $APP_ROOT_URL
+        echo FILTER_TAGS: $FILTER_TAGS
         pwd 
         ls -l
       env:
