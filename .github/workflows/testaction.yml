@@ -38,10 +38,10 @@ jobs:
         # Need to create a personal token as the token that is provided by Actions expires to soon
         GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE_TOKEN }} 
       with:
-        tag_name: ${{ steps.new_version.outputs.tag }}
-        release_name: TestRelease ${{ steps.new_version.outputs.tag }}
+        tag_name: v0.0.1
+        release_name: TestRelease v0.0.1
         body: |
-          ${{ steps.new_version.outputs.commits }}
+          test me 
         commitish: ${{env.BRANCH_ID}}
         draft: false
         prerelease: false
