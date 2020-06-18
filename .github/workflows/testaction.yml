@@ -30,7 +30,7 @@ jobs:
         ls -l
     - uses: actions/checkout@v2
       with:
-        ref: ${{BRANCH_ID}}
+        ref: ${{env.BRANCH_ID}}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1.1.1
@@ -42,6 +42,6 @@ jobs:
         release_name: TestRelease ${{ steps.new_version.outputs.tag }}
         body: |
           ${{ steps.new_version.outputs.commits }}
-        commitish: ${{BRANCH_ID}}
+        commitish: ${{env.BRANCH_ID}}
         draft: false
         prerelease: false
