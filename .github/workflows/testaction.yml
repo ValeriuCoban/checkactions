@@ -36,7 +36,7 @@ jobs:
       uses: actions/create-release@v1.1.1
       env:
         # Need to create a personal token as the token that is provided by Actions expires to soon
-        GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       with:
         tag_name: v0.0.1
         release_name: TestRelease v0.0.1
